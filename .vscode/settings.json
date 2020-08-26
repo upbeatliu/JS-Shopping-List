@@ -1,0 +1,28 @@
+{
+  "editor.fontSize": 24,
+  "editor.wordWrap": "on",
+  "terminal.integrated.fontSize": 18,
+  "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+  "editor.tabSize": 2,
+  "editor.tabCompletion": "on",
+  "emmet.syntaxProfiles": {
+    "javascript": "jsx",
+    "xml": {
+      "attr_quotes": "single"
+    }
+  },
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "window.zoomLevel": 0,
+  "explorer.confirmDelete": false,
+  "liveServer.settings.donotShowInfoMsg": true,
+  "liveSassComplile.settings.formats": [
+    {
+      "format": "compressed",
+      "extensionName": "min.css",
+      "savePath": "/dist/css"
+    }
+  ],
+  "git.ignoreLimitWarning": true
+}

@@ -1,0 +1,36 @@
+h1.card-title {
+  display: inline-block !important;
+  margin-top: 8px !important;
+  padding: 0 1rem !important; }
+
+h2.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #26a69a;
+  text-align: center; }
+
+select#shop {
+  display: block !important; }
+
+.done-item {
+  color: #1de9b6 !important; }
+
+.card-content {
+  position: relative; }
+  .card-content .menu {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    bottom: 11.4rem; }
+
+#toast-container {
+  position: relative; }
+  #toast-container .toast {
+    position: absolute;
+    background-color: #ff4081 !important;
+    top: auto !important;
+    right: 1%;
+    bottom: 90%;
+    left: auto !important; }
+
+/*# sourceMappingURL=style.css.map */
