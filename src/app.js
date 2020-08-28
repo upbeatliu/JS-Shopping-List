@@ -1,7 +1,7 @@
 // get form, inputItem, ulList, filter, clearBtn elements
 const inputName = document.querySelector("#name");
 const empty = document.querySelector(".empty");
-const title = document.querySelector(".title");
+const displayTitle = document.querySelector("h1.title");
 const date = document.querySelector(".date");
 const shop = document.querySelector("#shop");
 const list = document.querySelector("ul.collection");
@@ -15,7 +15,7 @@ allEventsListener();
 
 function allEventsListener() {
   // load items from localStorage
-  document.addEventListener("DOMContentLoaded", getLoadItems);
+  document.addEventListener("DOMContentLoaded", getLoadItemsTitle);
   // Filter Items
   filterInput.addEventListener("keyup", filterItems);
   // Clear Items
@@ -33,13 +33,19 @@ function allEventsListener() {
 }
 
 // Load Items from localStorage
-function getLoadItems() {
-  let lists, items, shops;
+function getLoadItemsTitle() {
+  let lists, items, shops, title;
   lists = {
     items: items,
     shops: shops,
   };
-
+  // load title
+  if( localStorage.getItem('title') === null ){
+    displayTitle.textContent = 'Shopping List';
+  } else {
+    displayTitle.textContent = JSON.parse(localStorage.getItem('title'));
+  }
+  // load Items
   if (
     localStorage.getItem("lists") == null ||
     localStorage.getItem("lists").length == "23"
@@ -94,18 +100,21 @@ function filterItems(e) {
     }
   });
 }
-
+function createEmptyDiv() {
+  // create empty div
+  const empty = document.createElement("div");
+  empty.className = "card-content empty";
+  empty.append(document.createTextNode("Your list is empty!"));
+  return empty;
+}
 // Clear items button
 function clearItems() {
   // clear all li
   while (list.firstChild) {
     list.removeChild(list.firstChild);
   }
-  // create empty div
-  const empty = document.createElement("div");
-  empty.className = "card-content empty";
-  empty.append(document.createTextNode("Your list is empty!"));
-  list.appendChild(empty);
+  // append empty div 
+  list.appendChild(createEmptyDiv());
   // clear tasks from localstorage
   localStorage.clear();
 }
@@ -154,9 +163,9 @@ function removeFromLocalStorage(pickItem) {
   });
 
   if (lists.items.length == 0) {
-    // remove empty text
-    empty.style.display = "block";
-    // localStorage.clear(); // not working
+    // append empty div 
+    list.appendChild(createEmptyDiv());
+    
   }
 
   //store lists back localStorage
@@ -198,8 +207,8 @@ function addItem(e) {
   list.appendChild(li);
   //store item into LocalStorage
   storeItemInLocal(inputItem.value, shop.value);
-  // remove empty text
-  empty.style.display = "none";
+  // remove empty text  
+  list.removeChild(empty);
   //clear input text field
   inputItem.value = "";
   e.preventDefault();
@@ -226,7 +235,11 @@ function storeItemInLocal(item, shop) {
 }
 // Present List name and current date
 function titleDate(e) {
-  title.innerText = e.target.value;
+  const newTitle =  e.target.value;
+  if(newTitle){    
+    displayTitle.innerText = newTitle;
+  }
+  
   let current = new Date();
   let dd = String(current.getDate()).padStart(2, "0");
   let mm = String(current.getMonth() + 1).padStart(2, "0");
@@ -235,8 +248,13 @@ function titleDate(e) {
   if (current) {
     date.innerText = current;
   }
+  //store title into LocalStorage
+  storeTitleInLocal(newTitle);
 }
-
+function storeTitleInLocal(newTitle){
+  //update title in localStorage
+  localStorage.setItem('title', JSON.stringify(newTitle));
+}
 // menu click to toggle
 function menuToggle() {
   var elems = document.querySelectorAll(".fixed-action-btn");
@@ -246,7 +264,7 @@ function menuToggle() {
   });
 }
 
-// About popup dialogue
+// About and info popup dialogue
 (function ($) {
   $(function () {
     //initialize all modals

@@ -1,11 +1,11 @@
-h1.card-title {
-  display: inline-block !important;
-  margin-top: 8px !important;
-  padding: 0 1rem !important;
-}
-h2.title {
+// h1.card-title {
+//   display: inline-block !important;
+//   margin-top: 8px !important;
+//   padding: 0 1rem !important;
+// }
+h1.title {
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 700 !important;
   color: #26a69a;
   text-align: center;
 }

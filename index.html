@@ -18,22 +18,30 @@
       <div class="col s12">
         <div id="main" class="card">
           <div class="card-content">
-            
-              <h1 class="card-title">Shopping List</h1>
+            <div class="fixed-action-btn horizontal direction-top direction-left menu">
+              <a class="btn-floating btn-large teal lighten-3">
+                <i class="material-icons">menu</i>
+              </a>
+              <ul>
+                <li>
+                  <a class="btn-floating teal accent-3 modal-trigger" href="#about">About</a>                    
+                </li>
+                <li><a class="btn-floating yellow darken-1 modal-trigger" href="#info"><i class="material-icons">info_outline</i></a></li>
+                <li><a class="btn-floating green modal-trigger" href="#email"><i class="material-icons">email</i></a></li>                  
+              </ul>
+            </div>
 
-              <div class="fixed-action-btn horizontal direction-top direction-left menu">
-                <a class="btn-floating btn-large teal lighten-3">
-                  <i class="material-icons">menu</i>
-                </a>
-                <ul>
-                  <li>
-                    <a class="btn-floating teal accent-3 modal-trigger" href="#about">About</a>
-                    
-                  </li>
-                  <li><a class="btn-floating yellow darken-1"><i class="material-icons">add</i></a></li>
-                  <li><a class="btn-floating green"><i class="material-icons">email</i></a></li>                  
-                </ul>
-              </div>       
+            <!-- <h1 class="card-title">Shopping List</h1> -->
+            <div class="input-field list-title">
+              
+              <input type="text" name="name" id="name" value="">
+              <label for="name">Name List</label>
+              <small class="title-hint">Press Enter to finish</small>
+              <div class="row">
+                <h1 class="card-title title">Shopping List</h1>
+              <small class="date secondary-content"></small>
+              </div>                             
+            </div><!-- list-title -->                     
 
             <div class="row">
               <form id="list-form">
@@ -57,16 +65,7 @@
             </form>
           </div>
 
-          <div class="card-action">
-            <div class="input-field list-title">
-              <small class="secondary-content">Press Enter to finish</small>
-              <input type="text" name="name" id="name" value="">
-              <label for="name">Name List</label>
-              <div class="row">
-                <h2 class="title"></h2>
-              <small class="date secondary-content"></small>
-              </div>                             
-            </div><!-- list-title -->
+          <div class="card-action">            
 
             <div class="input-field filter-area">
               <input type="text" name="filter" id="filter">
@@ -100,6 +99,34 @@
       <h4>About this App.</h4>
       <h5>Highlight:</h5><span>Safe App</span><span>No Data Expose</span>
       <p>This shopping list will store at your local device only. Therefore, you don't need to worry about how other people will see it, also it won't be sent through the internet to anywhere too. </p>
+
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+  </div>
+
+  <div id="info" class="modal">
+    <div class="modal-content">
+      <h4>How to use this App.</h4>
+      <ul>
+        <li>Create a title for your shopping list. At the same time, it will show the current date automatically.</li>
+        <li>Input an item and choose a shop name, once you click "Add Item" it will be listed.</li>
+        <li>You are able to filter the item(s) from your list.</li>
+        <li>You also can click "CLEAR ITEMS" to restart a new list.</li>
+        <li>From the menu to choose email, you can send the list to other people.</li>
+      </ul>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+  </div>
+
+  <div id="email" class="modal">
+    <div class="modal-content">
+      <h4>Mail to</h4>
+      
+      <p></p>
 
     </div>
     <div class="modal-footer">
